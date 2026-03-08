@@ -1,0 +1,653 @@
+/* ===============================
+   GLOBAL
+================================ */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#f4f4f4;
+    color:#222;
+    line-height:1.6;
+}
+
+h1,h2,h3{
+    font-family:'Playfair Display',serif;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* ===============================
+   HEADER
+================================ */
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:hsl(204, 17%, 94%);
+    z-index:999;
+    box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
+
+.header-flex{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 0;
+}
+
+.logo-box{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-box img{
+    height:45px;
+    width:45px;
+    border-radius:50%;
+    border:2px solid #d4af37;
+}
+
+.logo-text{
+    color:#0c3764;
+    font-size:20px;
+    font-weight:700;
+}
+
+nav a{
+    color:#0c3764;
+    text-decoration:none;
+    margin-left:25px;
+    font-weight:500;
+    cursor:pointer;
+}
+
+/* ===============================
+   HERO
+================================ */
+.hero{
+    background:#0c3764;
+    color:white;
+    padding:220px 0 160px;
+}
+
+.hero h1{
+    font-size:70px;
+    margin:25px 0;
+}
+
+.hero small{
+    color:#d4af37;
+    letter-spacing:2px;
+}
+
+.hero-buttons button{
+    padding:14px 26px;
+    margin-right:15px;
+    border:none;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.btn-gold{
+    background:#d4af37;
+}
+
+.btn-outline{
+    background:transparent;
+    border:1px solid white;
+    color:white;
+}
+
+/* =========================
+   GOLD STRIP
+========================= */
+
+.gold-strip{
+background:linear-gradient(90deg,#c79b2a,#d4af37,#f1d06b,#d4af37,#c79b2a);
+overflow:hidden;
+white-space:nowrap;
+padding:18px 0;
+position:relative;
+}
+
+/* shimmer effect */
+
+.gold-strip::before{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:50%;
+height:100%;
+background:linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,0.6),
+transparent
+);
+animation:shimmer 5s infinite;
+}
+
+/* scrolling track */
+
+.gold-track{
+display:flex;
+gap:120px;
+animation:scrollGold 25s linear infinite;
+}
+
+.gold-strip:hover .gold-track{
+animation-play-state:paused;
+}
+
+/* text */
+
+.gold-track span{
+font-weight:700;
+color:#0c3764;
+font-size:18px;
+letter-spacing:2px;
+display:flex;
+align-items:center;
+gap:18px;
+padding-right:120px;
+}
+
+/* floating icons */
+
+.gold-track span{
+animation:floatIcons 3s ease-in-out infinite;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes scrollGold{
+
+0%{
+transform:translateX(0);
+}
+
+100%{
+transform:translateX(-50%);
+}
+
+}
+
+
+
+/* floating animation */
+
+@keyframes floatIcons{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-4px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+/* ===============================
+   SECTION
+================================ */
+.section{
+    padding:140px 0;
+}
+
+/* ===============================
+   ABOUT
+================================ */
+.about-flex{
+    display:flex;
+    gap:60px;
+    align-items:center;
+    flex-direction:row-reverse;
+}
+
+.about-flex img{
+    width:420px;
+    border-radius:8px;
+}
+
+.about-content h2{
+    font-size:42px;
+    color:#0c3764;
+    margin-bottom:20px;
+}
+
+.about-content p{
+    font-size:17px;
+    line-height:1.9;
+    color:#0c3764;
+    margin-bottom:20px;
+}
+
+.highlight-box{
+    background:#fff;
+    padding:22px;
+    margin-bottom:20px;
+    border-left:5px solid #0c3764;
+    border-radius:6px;
+}
+
+/* ===============================
+   PRODUCTS
+================================ */
+.products-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    margin-bottom:70px;
+}
+
+.products-header small{
+    letter-spacing:3px;
+    color:#d4af37;
+    font-weight:600;
+}
+
+.products-header h1{
+    font-size:50px;
+    margin-top:15px;
+}
+
+.products-header h1 strong{
+    background:linear-gradient(90deg,#0c3764,#1a4f8b,#d4af37);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    position:relative;
+}
+
+.products-header h1 strong::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-12px;
+    width:100px;
+    height:4px;
+    background:#d4af37;
+    border-radius:3px;
+}
+
+/* View All Button */
+.view-all-btn{
+    display:none;
+}
+
+@media (max-width:600px){
+    .view-all-btn{
+        display:inline-block;
+        background:#0c3764;
+        color:#fff;
+        padding:12px 22px;
+        border:none;
+        border-radius:6px;
+        font-weight:600;
+        margin-top:20px;
+        cursor:pointer;
+    }
+}
+
+/* ===============================
+   BENTO GRID
+================================ */
+.bento-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    grid-auto-rows:240px;
+    gap:25px;
+}
+
+.bento-item{
+    position:relative;
+    overflow:hidden;
+    border-radius:14px;
+    cursor:pointer;
+}
+
+.bento-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:brightness(60%);
+    transition:0.4s ease;
+}
+
+.bento-item:hover img{
+    transform:scale(1.08);
+}
+
+.bento-item span{
+    position:absolute;
+    bottom:20px;
+    left:20px;
+    color:#fff;
+    font-size:22px;
+    font-weight:600;
+}
+
+.large{ grid-column:span 2; grid-row:span 2; }
+.wide{ grid-column:span 2; }
+.tall{ grid-row:span 2; }
+
+/* ===============================
+   TRUST
+================================ */
+.trust{
+    background:linear-gradient(90deg,#111,#222);
+    color:white;
+    padding:140px 0;
+}
+
+.trust-flex{
+    display:flex;
+    gap:70px;
+}
+
+.trust-right{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.trust-card{
+    background:#1e1e1e;
+    padding:30px;
+    border-radius:8px;
+}
+
+.trust-left ul{
+    margin-top:20px;
+    padding-left:0;
+    list-style:none;
+}
+
+.trust-left ul li{
+    margin-bottom:18px;
+    font-size:16px;
+    line-height:1.7;
+}
+
+.trust-left h2{
+    font-size:52px;
+    line-height:1.2;
+    margin-bottom:25px;
+    font-weight:700;
+}
+
+/* ===============================
+   CONTACT
+================================ */
+.contact-section{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    margin-top:80px;
+}
+
+.contact-left{
+    background:#0c3764;
+    color:white;
+    padding:90px 60px;
+}
+
+.contact-box{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-bottom:30px;
+    cursor:pointer;
+}
+
+.contact-icon{
+    width:55px;
+    height:55px;
+    background:rgba(255,255,255,.12);
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+}
+
+.contact-address{
+    margin-top:40px;
+    padding-top:20px;
+    border-top:1px solid rgba(78, 76, 76, 0.871);
+    font-size:14px;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+.footer{
+    background:#1a1a1a;
+    color:#aaa;
+    padding:25px;
+    text-align:center;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+/* Tablet */
+@media(max-width:1000px){
+
+    .about-flex,
+    .trust-flex{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .bento-grid{
+        grid-template-columns:repeat(2,1fr);
+        grid-auto-rows:220px;
+    }
+
+    .large{ grid-column:span 2; grid-row:span 1; }
+    .tall{ grid-row:span 1; }
+
+    .contact-section{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:50px;
+    }
+}
+
+/* Mobile */
+@media(max-width:600px){
+
+    .hero{
+        padding:180px 0 120px;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .bento-grid{
+        grid-template-columns:1fr;
+        grid-auto-rows:220px;
+    }
+
+    .large,
+    .wide,
+    .tall{
+        grid-column:span 1 !important;
+        grid-row:span 1 !important;
+    }
+
+    .bento-item span{
+        font-size:18px;
+        bottom:15px;
+        left:15px;
+    }
+
+    /* ⭐ MOBILE CIRCULAR IMAGE */
+    .about-flex img{
+        width:220px;
+        height:220px;
+        object-fit:cover;
+        border-radius:50%;
+        margin:0 auto 20px;
+        display:block;
+        border:4px solid #d4af37;
+        box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    }
+}
+/* ABOUT PAGE HERO */
+
+.about-hero{
+background:#0c3764;
+color:white;
+padding:140px 0 100px;
+text-align:center;
+margin-top:70px;
+}
+
+.about-hero h1{
+font-size:48px;
+margin-bottom:10px;
+}
+
+.about-hero p{
+font-size:18px;
+opacity:0.9;
+}
+
+
+
+/* LEADERSHIP */
+
+.leadership-section{
+padding:100px 0;
+background:#f5f5f5;
+}
+
+.leadership-flex{
+display:flex;
+align-items:center;
+gap:70px;
+}
+
+.leader-image img{
+width:380px;
+border-radius:10px;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.leader-content h2{
+font-size:40px;
+color:#0c3764;
+margin-bottom:10px;
+}
+
+.leader-content h4{
+color:#d4af37;
+margin-bottom:15px;
+}
+
+.leader-content p{
+color:#555;
+line-height:1.8;
+}
+
+
+
+/* COMPANY PROFILE */
+
+.company-profile{
+padding:100px 0;
+background:white;
+}
+
+.profile-box{
+background:#f8f8f8;
+padding:50px;
+border-radius:10px;
+text-align:center;
+}
+
+.profile-box h2{
+color:#0c3764;
+margin-bottom:20px;
+font-size:36px;
+}
+
+.profile-box p{
+max-width:900px;
+margin:auto;
+margin-bottom:15px;
+line-height:1.8;
+}
+
+
+
+/* CORE VALUES */
+
+.values-section{
+padding:100px 0;
+background:#fafafa;
+text-align:center;
+}
+
+.values-title{
+font-size:40px;
+color:#0c3764;
+margin-bottom:50px;
+}
+
+.values-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:40px;
+}
+
+.value-card{
+padding:20px;
+}
+
+.value-card h3{
+color:#0c3764;
+margin-bottom:10px;
+}
+
+.value-card p{
+color:#555;
+font-size:15px;
+}
+
+
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.leadership-flex{
+flex-direction:column;
+text-align:center;
+}
+
+.values-grid{
+grid-template-columns:1fr;
+}
+
+}
